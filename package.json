@@ -1,0 +1,14 @@
+{
+  "name": "meli-challenge-app",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "App - Challenge Mercadolibre for frontends",
+  "scripts": {
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "start:server": "cd server && npm run dev",
+    "start:client": "cd client && npm run start"
+  },
+  "keywords": [],
+  "author": "Juanse Calviño <j.s.calvinio@gmail.com>"
+}
