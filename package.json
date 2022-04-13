@@ -5,9 +5,9 @@
   "description": "App - Challenge Mercadolibre for frontends",
   "scripts": {
     "install:server": "cd server && npm install",
-    "install:client": "cd client && npm install",
+    "install:ui": "cd ui && npm install",
     "start:server": "cd server && npm run dev",
-    "start:client": "cd client && npm run start"
+    "start:ui": "cd ui && npm run start"
   },
   "keywords": [],
   "author": "Juanse Calviño <j.s.calvinio@gmail.com>"

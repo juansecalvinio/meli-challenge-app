@@ -1,7 +1,7 @@
 {
-  "name": "meli-challenge-client",
+  "name": "meli-challenge-ui",
   "version": "1.0.0",
-  "description": "Client - Challenge Mercadolibre for frontends",
+  "description": "UI - Challenge Mercadolibre for frontends",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
