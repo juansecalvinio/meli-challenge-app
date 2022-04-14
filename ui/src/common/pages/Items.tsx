@@ -11,12 +11,11 @@ import { FormatHelper } from '../../utils/FormatHelper';
 import {
   ItemsCard,
   ItemsContainer,
-  ItemDescription,
-  ItemInfo,
-  ItemLocation,
-  ItemPriceShipping,
-  LoadingContainer,
-  LoadingItem
+  ItemsDescription,
+  ItemsInfo,
+  ItemsLocation,
+  ItemsPriceShipping,
+  LoadingContainer
 } from './styled';
 
 interface ItemsProps {
@@ -67,20 +66,20 @@ const Items: FC<ItemsProps> = (props) => {
               <Link to={`/items/${item.id}`} key={item.id}>
                 <ItemsCard>
                   <img src={item.picture} />
-                  <ItemInfo>
-                    <ItemPriceShipping>
+                  <ItemsInfo>
+                    <ItemsPriceShipping>
                       <p>{FormatHelper.instance.formatPrice(item.price.amount)}</p>
                       {!!item.free_shipping && (
                         <img src={iconFreeShipping} alt="free-shipping" />
                       )}
-                    </ItemPriceShipping>
-                    <ItemDescription>
+                    </ItemsPriceShipping>
+                    <ItemsDescription>
                       <p>{item.title}</p>
-                    </ItemDescription>
-                  </ItemInfo>
-                  <ItemLocation>
+                    </ItemsDescription>
+                  </ItemsInfo>
+                  <ItemsLocation>
                     <p>{item.location}</p>
-                  </ItemLocation>
+                  </ItemsLocation>
                 </ItemsCard>
               </Link>
             </li>

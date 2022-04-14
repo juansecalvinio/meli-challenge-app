@@ -12,8 +12,14 @@ const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 62.5%;
   }
-  html, body, #root {
-    font-family: 'Arial', sans-serif;
+  * {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    box-sizing: border-box;
+  }
+  html {
+    height: 100vh;
+  }
+  body, #root {
     height: 100%;
   }
   body {
