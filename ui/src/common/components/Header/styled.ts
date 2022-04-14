@@ -27,6 +27,8 @@ export const InputWrapper = styled.span`
 
   a {
     background-color: ${theme.colors.smoke};
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -38,8 +40,10 @@ export const InputWrapper = styled.span`
   }
 
   input {
-    font-size: 1.8rem;
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
     border: none;
+    font-size: 1.8rem;
     width: 100%;
     padding: 0.9rem;
   }

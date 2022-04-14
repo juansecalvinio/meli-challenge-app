@@ -14,7 +14,8 @@ export function fetchItems(query: string) {
     try {
       dispatch({ type: FETCH_REQUESTED, payload: 'items' });
       const response = await ItemsService.instance.fetchItems(query);
-      dispatch({ type: FETCH_ITEMS, payload: response.data.items });
+      const items = response.data.items.slice(0, 4);
+      dispatch({ type: FETCH_ITEMS, payload: items });
       dispatch({ type: FETCH_SUCCEDED, payload: 'items' });
     } catch (error) {
       dispatch({ type: FETCH_FAILED, payload: { error, from: 'item' } });

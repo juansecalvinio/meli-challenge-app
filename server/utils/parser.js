@@ -33,7 +33,8 @@ module.exports = {
         },
         picture: resultItem.thumbnail,
         condition: resultItem.condition,
-        free_shipping: resultItem.shipping.free_shipping
+        free_shipping: resultItem.shipping.free_shipping,
+        location: resultItem.address.state_name
       }
     });
     //agrego los items al nuevo formato de respuesta
@@ -69,6 +70,7 @@ module.exports = {
       picture: data.pictures[0].url,
       condition: data.condition,
       free_shipping: data.shipping.free_shipping,
+      location: resultItem.seller_address.state.name,
       sold_quantity: data.sold_quantity,
       description: description.plain_text
     }

@@ -5,9 +5,10 @@ export class ItemsService {
   static instance = new ItemsService();
 
   fetchItems(query: string) {
-    console.log('query', typeof query);
     let url = `${config.baseURL}/items`;
-    if (query !== "") url += `?q=${query}`;
+    if (query !== "") {
+      url += `?q=${query}`;
+    }
     return axios.get(url);
   }
 
