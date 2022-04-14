@@ -2,6 +2,17 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { useParams, useLocation } from 'react-router';
 import { fetchItemById } from '../../store/actions';
+import { 
+  ItemButtonSale,
+  ItemDescription,
+  ItemDetailsContainer,
+  ItemDetailsWrapper,
+  ItemImage,
+  ItemImageDescription,
+  ItemTitlePrice
+} from './styled';
+
+import { FormatHelper } from '../../utils/FormatHelper';
 
 const ItemDetails = (props: any) => {
   const { 
@@ -18,15 +29,31 @@ const ItemDetails = (props: any) => {
   }, [location.key]);
 
   return (
-    <div>
+    <ItemDetailsContainer>
       {loading ? (
         <h4>Cargando...</h4>
       ) : item.hasOwnProperty('title') ? (
-        <h4>{item.title}</h4>
+        <ItemDetailsWrapper>
+          <ItemImageDescription>
+            <ItemImage src={item.picture} alt="item-picture" />
+            <ItemDescription>
+              <h4>Descripción del producto</h4>
+              <p>{item.description}</p>
+            </ItemDescription>
+          </ItemImageDescription>
+          <ItemTitlePrice>
+            <p>
+              {item.condition === 'new' ? 'Nuevo' : 'Usado'} - {item.sold_quantity} vendidos
+            </p>
+            <h4>{item.title}</h4>
+            <h2>{FormatHelper.instance.formatPrice(item.price.amount)}</h2>
+            <ItemButtonSale>Comprar</ItemButtonSale>
+          </ItemTitlePrice>
+        </ItemDetailsWrapper>
       ) : (
         <h4>{id}</h4>
       )}
-    </div>
+    </ItemDetailsContainer>
   )
 }
 

@@ -22,7 +22,6 @@ export const InputWrapper = styled.span`
   flex: 1;
   display: flex;
   width: 100%;
-  padding: 1rem;
   padding-left: 2.5rem;
 
   a {
