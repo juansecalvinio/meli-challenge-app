@@ -70,7 +70,7 @@ module.exports = {
       picture: data.pictures[0].url,
       condition: data.condition,
       free_shipping: data.shipping.free_shipping,
-      location: resultItem.seller_address.state.name,
+      location: data.seller_address.state.name,
       sold_quantity: data.sold_quantity,
       description: description.plain_text
     }

@@ -18,6 +18,7 @@ export function fetchItems(query: string) {
       dispatch({ type: FETCH_ITEMS, payload: items });
       dispatch({ type: FETCH_SUCCEDED, payload: 'items' });
     } catch (error) {
+      dispatch({ type: FETCH_ITEMS, payload: [] });
       dispatch({ type: FETCH_FAILED, payload: { error, from: 'item' } });
     }
   }

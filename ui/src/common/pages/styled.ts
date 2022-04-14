@@ -79,3 +79,14 @@ export const ItemLocation = styled.span`
     font-size: 1.2rem;
   }
 `;
+
+export const LoadingContainer = styled.div`
+  background-color: ${theme.colors.white};
+  height: 100%;
+  padding: 1.6rem;
+`;
+
+export const LoadingItem = styled.div`
+  height: 200px;
+  width: 100%;
+`;
