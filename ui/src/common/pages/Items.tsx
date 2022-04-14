@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FC } from 'react'
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { fetchItems } from '../../store/actions';
 
 interface ItemsProps {
@@ -14,12 +14,13 @@ const Items: FC<ItemsProps> = (props) => {
   const {
     loading,
     items,
-    textSearched,
     fetchItems
   } = props;
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
-    fetchItems(textSearched);
+    if (!!searchParams.get("search")) fetchItems(searchParams.get("search"));
   }, [])
 
   return (
@@ -43,7 +44,6 @@ const mapStateToProps = (state: any) => {
   return {
     loading: state.main.fetching.status,
     items: state.items.items,
-    textSearched: state.items.textSearched
   }
 }
 

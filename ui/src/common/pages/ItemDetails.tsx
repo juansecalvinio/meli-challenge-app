@@ -18,7 +18,7 @@ const ItemDetails = (props: any) => {
 
   return (
     <div>
-      { loading ? (
+      {loading ? (
         <h4>Cargando...</h4>
       ) : item.hasOwnProperty('title') ? (
         <h4>{item.title}</h4>
