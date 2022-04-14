@@ -1,7 +1,5 @@
 const Home = (props: any) => {
-  return (
-    <div>Home</div>
-  )
+  return null;
 }
 
 export default Home;

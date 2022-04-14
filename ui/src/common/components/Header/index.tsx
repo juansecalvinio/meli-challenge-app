@@ -9,6 +9,7 @@ const Header = () => {
   const [value, setValue] = useState("");
 
   const handleInputChange = (e: any) => {
+    e.preventDefault();
     setValue(e.target.value);
   }
 

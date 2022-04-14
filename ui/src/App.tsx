@@ -6,14 +6,20 @@ import Items from './common/pages/Items';
 import ItemDetails from './common/pages/ItemDetails';
 import Layout from './common/components/Layout';
 import store from './store';
+import { theme } from './common/theme';
 
 const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 62.5%;
   }
+  html, body, #root {
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+  }
   body {
     margin: 0;
     padding: 0;
+    background-color: ${theme.colors.smoke};
   }
 `;
 

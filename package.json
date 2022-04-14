@@ -10,5 +10,10 @@
     "start:ui": "cd ui && npm run start"
   },
   "keywords": [],
-  "author": "Juanse Calviño <j.s.calvinio@gmail.com>"
+  "author": "Juanse Calviño <j.s.calvinio@gmail.com>",
+  "dependencies": {
+    "react-content-loader": "^6.2.0",
+    "react-loading-skeleton": "^3.1.0",
+    "react-placeholder": "^4.1.0"
+  }
 }

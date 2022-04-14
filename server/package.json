@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Juanse Calviño <j.s.calvinio@gmail.com>",
   "description": "Server - Challenge Mercadolibre for frontends",
-  "main": "server.js",
+  "main": "src/server.js",
   "license": "MIT",
   "scripts": {
     "start": "node server",

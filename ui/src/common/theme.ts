@@ -6,5 +6,6 @@ export const theme = {
     lightgray: "#999999",
     smoke: "#EEEEEE",
     blue: "#3483FA",
+    white: "#FFFFFF"
   }
 };

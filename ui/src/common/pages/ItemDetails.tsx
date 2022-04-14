@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-import { useParams } from 'react-router';
+import { useParams, useLocation } from 'react-router';
 import { fetchItemById } from '../../store/actions';
 
 const ItemDetails = (props: any) => {
@@ -10,11 +10,12 @@ const ItemDetails = (props: any) => {
     item
   } = props;
 
+  const location = useLocation();
   const { id } = useParams();
 
   useEffect(() => {
     fetchItemById(id);
-  }, [])
+  }, [location.key]);
 
   return (
     <div>
