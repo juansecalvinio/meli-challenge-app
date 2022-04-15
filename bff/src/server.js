@@ -1,3 +1,6 @@
+/**
+ * Punto de entrada del Backend For Frontend
+ */
 const express = require('express');
 const cors = require('cors');
 const itemsRoutes = require('./routes/items');

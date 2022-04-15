@@ -1,3 +1,6 @@
+/**
+ * Actions para manejar las acciones de los items.
+ */
 import { 
   FETCH_REQUESTED,
   FETCH_SUCCEDED,
@@ -10,6 +13,14 @@ export const FETCH_ITEMS = "FETCH_ITEMS";
 export const FETCH_ITEM_BY_ID = "FETCH_ITEM_BY_ID";
 export const FETCH_CATEGORIES = "FETCH_CATEGORIES";
 
+/**
+ * fetchItems:
+ * - Busca los items por query, a través del servicio ItemsService.
+ * - Guarda las respuestas en los reducers
+ * - En caso de fallar, guarda el error, y reinicia el reducer de items.
+ * @param query
+ * @returns dispatch
+ */
 export function fetchItems(query: string) {
   return async function (dispatch: any) {
     try {
@@ -27,6 +38,14 @@ export function fetchItems(query: string) {
   }
 }
 
+/**
+ * fetchItemsById:
+ * - Busca un item por id a través del servicio ItemsService
+ * - Guarda la información en los reducers
+ * - En caso de fallar guarda el error, y reinicia el reducer de item.
+ * @param id
+ * @returns dispatch
+ */
 export function fetchItemById(id: string) {
   return async function (dispatch: any) {
     try {

@@ -1,3 +1,8 @@
+/**
+ * Componente Items
+ * -----------------
+ * Muestra todos los items que devuelva el BFF, a partir del texto ingresado.
+ */
 import { useEffect, FC } from 'react'
 import { connect } from 'react-redux';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -41,12 +46,14 @@ const Items: FC<ItemsProps> = (props) => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   
+  // Usa spring para generar una leve animación al cargar los elementos.
   const spring = useSpring({
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: { duration: 1000 }
   });
 
+  // Cada vez que se refresca la url, busca los datos del item.
   useEffect(() => {
     fetchItems(searchParams.get("search"));
   }, [location.key]);
@@ -109,6 +116,7 @@ const Items: FC<ItemsProps> = (props) => {
   )
 }
 
+// Mapea el state global de los reducer, a las propiedades del componente.
 const mapStateToProps = (state: any) => {
   return {
     categories: state.items.categories,
@@ -117,6 +125,7 @@ const mapStateToProps = (state: any) => {
   }
 }
 
+// Mapea el dispatcher global de las actions, a las propiedades del componente.
 const mapDispatchToProps = (dispatch: any) => {
   return {
     fetchItems: (query: any) => dispatch(fetchItems(query))

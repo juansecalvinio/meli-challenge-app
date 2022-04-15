@@ -1,3 +1,6 @@
+/**
+ * Punto de entrada de la aplicación Frontend
+ */
 import ReactDOM from 'react-dom';
 import App from './App';
 

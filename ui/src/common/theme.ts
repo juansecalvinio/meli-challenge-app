@@ -1,3 +1,6 @@
+/**
+ * Theme con definiciones de estilos estándar para toda la aplicación.
+ */
 export const theme = {
   colors: {
     yellow: "#FFE600",

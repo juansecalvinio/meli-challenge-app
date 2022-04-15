@@ -1,3 +1,6 @@
+/**
+ * Crea el store global de toda la aplicación
+ */
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 

@@ -6,7 +6,7 @@ module.exports = {
    * @returns response
    */
   itemsResponseParser: (data) => {
-    //armo el nuevo formato de respuesta
+    // Arma el nuevo formato de respuesta
     let response = {
       author: {
         name: "MLA",
@@ -14,7 +14,7 @@ module.exports = {
       }
     };
 
-    //busco las categorias
+    // Busca las categorias
     let [categoriesValues] = data.filters.map(filterItem => {
       if (filterItem.id === "category") {
         return filterItem.values;
@@ -23,10 +23,11 @@ module.exports = {
     let [categories] = categoriesValues.map(category => {
       return category.path_from_root.map(values => values.name);
     });
-    //agrego las categorias al nuevo formato de respuesta
+
+    // Agrega las categorias al nuevo formato de respuesta.
     response.categories = categories;
 
-    //busco los items
+    // Busca los items.
     let itemsValues = data.results.map(resultItem => {
       return {
         id: resultItem.id,
@@ -42,7 +43,7 @@ module.exports = {
         location: resultItem.address.state_name
       }
     });
-    //agrego los items al nuevo formato de respuesta
+    // Agrega los items al nuevo formato de respuesta.
     response.items = itemsValues;
 
     return response;
@@ -55,7 +56,7 @@ module.exports = {
    * @returns response
    */
   itemResponseParser: (data, description, categories) => {
-    //armo el nuevo formato de respuesta
+    // Arma el nuevo formato de respuesta.
     let response = {
       author: {
         name: "MLA",
@@ -63,10 +64,10 @@ module.exports = {
       }
     };
 
-    //busco las categorias del item y las guardo para agregarlas en la respuesta
+    // Busca las categorias del item y las guarda para agregarlas en la respuesta.
     const categoriesNames = categories.path_from_root.map(category => category.name);
 
-    //agrego el item y la descripcion al nuevo formato de respuesta
+    // Agrega el item y la descripcion al nuevo formato de respuesta.
     response.item = {
       id: data.id,
       title: data.title,

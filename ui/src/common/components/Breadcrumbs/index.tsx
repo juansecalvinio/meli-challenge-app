@@ -1,3 +1,8 @@
+/**
+ * Componente Breadcrumbs
+ * ----------------------
+ * Arma los breadcrumbs de la aplicación en base a lo que reciba como parámetro
+ */
 import { UlBreadcrumbs, LiBreadcrumbs } from './styled';
 import { GrNext } from 'react-icons/gr';
 
