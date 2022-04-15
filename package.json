@@ -5,9 +5,14 @@
   "description": "App - Challenge Mercadolibre for frontends",
   "author": "Juanse Calviño <j.s.calvinio@gmail.com>",
   "scripts": {
-    "install:server": "cd server && npm install",
+    "install:bff": "cd bff && npm install",
     "install:ui": "cd ui && npm install",
-    "start:server": "cd server && npm run dev",
-    "start:ui": "cd ui && npm run start"
+    "start:bff": "cd bff && npm run dev",
+    "start:ui": "cd ui && npm run start",
+    "install": "concurrently --kill-others-on-fail \"npm run install:bff\" \"npm run install:ui\"",
+    "start": "concurrently --kill-others-on-fail \"npm run start:bff\" \"npm run start:ui\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0"
   }
 }
