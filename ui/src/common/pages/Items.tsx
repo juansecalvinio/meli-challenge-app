@@ -1,7 +1,8 @@
-import React, { useState, useEffect, FC } from 'react'
+import { useEffect, FC } from 'react'
 import { connect } from 'react-redux';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLocation } from 'react-router';
+import { animated, useSpring } from 'react-spring';
 import ContentLoader from 'react-content-loader'
 import { fetchItems } from '../../store/actions';
 import iconFreeShipping from '../../assets/icon-shipping-2x.png';
@@ -9,6 +10,7 @@ import iconFreeShipping from '../../assets/icon-shipping-2x.png';
 import { FormatHelper } from '../../utils/FormatHelper';
 
 import {
+  ItemCategoriesContainer,
   ItemsCard,
   ItemsContainer,
   ItemsDescription,
@@ -17,8 +19,11 @@ import {
   ItemsPriceShipping,
   LoadingContainer
 } from './styled';
+import NotFound from './NotFound';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 interface ItemsProps {
+  categories?: any,
   loading?: boolean,
   items?: any,
   textSearched?: string,
@@ -27,20 +32,32 @@ interface ItemsProps {
 
 const Items: FC<ItemsProps> = (props) => {
   const {
+    categories,
     loading,
     items,
     fetchItems
   } = props;
-
+  
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
+  
+  const spring = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: { duration: 1000 }
+  });
 
   useEffect(() => {
     fetchItems(searchParams.get("search"));
   }, [location.key]);
 
   return (
-    <ItemsContainer>
+    <ItemsContainer style={spring}>
+      <ItemCategoriesContainer>
+        {items.length > 0 ? (
+          <Breadcrumbs sections={categories} />
+        ) : null}
+      </ItemCategoriesContainer>
       {loading ? (
         <LoadingContainer>
           {[1,2,3,4].map((index) => (
@@ -60,33 +77,33 @@ const Items: FC<ItemsProps> = (props) => {
           ))}
         </LoadingContainer>
       ) : items.length > 0 ? (
-        <ul>
+        <animated.ul style={spring}>
           {items.map((item: any) => (
-            <li key={item.id}>
+            <animated.li key={item.id} style={spring}>
               <Link to={`/items/${item.id}`} key={item.id}>
-                <ItemsCard>
+                <ItemsCard style={spring}>
                   <img src={item.picture} />
                   <ItemsInfo>
-                    <ItemsPriceShipping>
+                    <ItemsPriceShipping style={spring}>
                       <p>{FormatHelper.instance.formatPrice(item.price.amount)}</p>
                       {!!item.free_shipping && (
                         <img src={iconFreeShipping} alt="free-shipping" />
                       )}
                     </ItemsPriceShipping>
-                    <ItemsDescription>
+                    <ItemsDescription style={spring}>
                       <p>{item.title}</p>
                     </ItemsDescription>
                   </ItemsInfo>
-                  <ItemsLocation>
+                  <ItemsLocation style={spring}>
                     <p>{item.location}</p>
                   </ItemsLocation>
                 </ItemsCard>
               </Link>
-            </li>
+            </animated.li>
           ))}
-        </ul>
+        </animated.ul>
       ) : (
-        <h2>No se encontraron datos.</h2>
+        <NotFound />
       )}
     </ItemsContainer>
   )
@@ -94,6 +111,7 @@ const Items: FC<ItemsProps> = (props) => {
 
 const mapStateToProps = (state: any) => {
   return {
+    categories: state.items.categories,
     loading: state.main.fetching.status,
     items: state.items.items,
   }

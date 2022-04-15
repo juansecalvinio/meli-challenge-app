@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 import { theme } from '../theme';
 
 /**
  * Items list components
  */
 
-export const ItemsContainer = styled.section`
+export const ItemsContainer = styled(animated.section)`
   height: 100%;
   
   ul {
@@ -28,7 +29,15 @@ export const ItemsContainer = styled.section`
 
 `;
 
-export const ItemsCard = styled.div`
+export const ItemCategoriesContainer = styled.span`
+  p {
+    color: ${theme.colors.gray};
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+  }
+`;
+
+export const ItemsCard = styled(animated.div)`
   border-bottom: 1px solid ${theme.colors.smoke};
   display: flex;
   align-items: center;
@@ -59,21 +68,21 @@ export const ItemsInfo = styled.span`
   }
 `;
 
-export const ItemsDescription = styled.span`
+export const ItemsDescription = styled(animated.span)`
   p {
     margin: 0;
     font-size: 1.8rem;
   }
 `;
 
-export const ItemsPriceShipping = styled.span`
+export const ItemsPriceShipping = styled(animated.span)`
   display: flex;
   align-items: center;
   justify-content: start;
   margin-bottom: 2rem;
 `;
 
-export const ItemsLocation = styled.span`
+export const ItemsLocation = styled(animated.span)`
   align-self: flex-start;
   padding-top: 4rem;
   padding-right: 3.2rem;
@@ -94,12 +103,12 @@ export const LoadingContainer = styled.div`
  * Item Details components
  */
 
-export const ItemDetailsContainer = styled.section`
+export const ItemDetailsContainer = styled(animated.section)`
   border-radius: 0.4rem;
   height: 100%;
-  `;
+`;
 
-export const ItemDetailsWrapper = styled.div`
+export const ItemDetailsWrapper = styled(animated.div)`
   background-color: ${theme.colors.white};
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -110,18 +119,20 @@ export const ItemDetailsWrapper = styled.div`
 export const ItemImageDescription = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
   max-width: 100%;
 `;
 
-export const ItemImage = styled.img`  
+export const ItemImage = styled(animated.img)`  
   max-width: 68rem;
-
+  margin: 0 auto;
+  margin-bottom: 3.6rem;
 `;
 
 export const ItemDescription = styled.div`
   margin-top: 8rem;
+  text-align: left;
 
   h4 {
     margin: 0;
@@ -137,7 +148,7 @@ export const ItemDescription = styled.div`
   }
 `;
 
-export const ItemTitlePrice = styled.div`
+export const ItemTitlePrice = styled(animated.div)`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -145,22 +156,25 @@ export const ItemTitlePrice = styled.div`
   max-width: 100%;
 
   p {
-    margin: 0;
+    color: ${theme.colors.dark};
     font-size: 1.4rem;
     font-weight: 200;
+    margin: 0;
   }
 
   h2 {
-    margin-top: 3.2rem;
+    color: ${theme.colors.dark};
     font-size: 4.6rem;
-    font-weight: 300;
+    font-weight: 400;
+    margin-top: 3.2rem;
   }
 
   h4 {
+    color: ${theme.colors.dark};
+    font-size: 2.4rem;
+    font-weight: 400;
     margin: 0;
     margin-top: 1.6rem;
-    font-size: 2.4rem;
-    font-weight: 300;
   }
 `;
 
@@ -172,4 +186,39 @@ export const ItemButtonSale = styled.button`
   font-size: 1.8rem;
   font-weight: 300;
   padding: 1.6rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+`;
+
+/**
+ * Not Found page components
+ */
+
+export const NotFoundContainer = styled(animated.section)`
+  background-color: ${theme.colors.white};
+  border-radius: 0.4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem;
+
+  svg {
+    width: 15rem;
+    height: 15rem;
+    fill: ${theme.colors.lightgray};
+  }
+
+  h2 {
+    font-size: 3.6rem;
+    font-weight: 300;
+  }
 `;

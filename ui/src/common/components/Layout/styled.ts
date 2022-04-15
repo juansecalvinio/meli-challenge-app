@@ -2,6 +2,6 @@ import styled from 'styled-components';
 
 export const SectionContainer = styled.main`
   max-width: 110rem;
-  margin: 4rem auto;
+  margin: 1.6rem auto;
   height: 100%;
 `;

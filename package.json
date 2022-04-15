@@ -3,17 +3,11 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "App - Challenge Mercadolibre for frontends",
+  "author": "Juanse Calviño <j.s.calvinio@gmail.com>",
   "scripts": {
     "install:server": "cd server && npm install",
     "install:ui": "cd ui && npm install",
     "start:server": "cd server && npm run dev",
     "start:ui": "cd ui && npm run start"
-  },
-  "keywords": [],
-  "author": "Juanse Calviño <j.s.calvinio@gmail.com>",
-  "dependencies": {
-    "react-content-loader": "^6.2.0",
-    "react-loading-skeleton": "^3.1.0",
-    "react-placeholder": "^4.1.0"
   }
 }

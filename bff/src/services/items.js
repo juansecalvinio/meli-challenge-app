@@ -3,7 +3,9 @@ const config = require('../config');
 
 module.exports = {
   getItems: async (query) => {
-    return await axios.get(`${config.baseUrl}/sites/MLA/search?q=${query}`);
+    let url = `${config.baseUrl}/sites/MLA/search`;
+    if (!!query) url += `?q=${query}`;
+    return await axios.get(url);
   },
 
   getItemById: async (id) => {
@@ -13,4 +15,8 @@ module.exports = {
   getItemDescription: async (id) => {
     return await axios.get(`${config.baseUrl}/items/${id}/description`);
   },
+
+  getCategories: async (id) => {
+    return await axios.get(`${config.baseUrl}/categories/${id}`);
+  }
 }

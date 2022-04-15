@@ -3,7 +3,7 @@ import { theme } from '../../theme';
 
 export const Container = styled.header`
   background-color: ${theme.colors.yellow};
-  height: 5rem;
+  height: 6rem;
   width: 100%;
   padding: 0.5rem;
 `;
@@ -43,6 +43,7 @@ export const InputWrapper = styled.span`
     border-bottom-left-radius: 0.4rem;
     border: none;
     font-size: 1.8rem;
+    font-weight: 300;
     width: 100%;
     padding: 0.9rem;
   }

@@ -27,11 +27,13 @@ module.exports = {
       const { data: itemData, status } = itemResponse;
       const { data: descriptionData } = descriptionResponse;
       
+      const { data: categoriesData } = await itemServices.getCategories(itemData.category_id);
+
       if (status !== 200) {
         res.status(status).json({ message: "Error al obtener item. Intente nuevamente." });
       }
 
-      const dataParsed = parser.itemResponseParser(itemData, descriptionData);
+      const dataParsed = parser.itemResponseParser(itemData, descriptionData, categoriesData);
       res.status(200).json(dataParsed);
     } catch (error) {
       res.status(404).json(error);

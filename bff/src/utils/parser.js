@@ -16,10 +16,15 @@ module.exports = {
 
     //busco las categorias
     let [categoriesValues] = data.filters.map(filterItem => {
-      if (filterItem.id === "category") return filterItem.values;
+      if (filterItem.id === "category") {
+        return filterItem.values;
+      }
+    });
+    let [categories] = categoriesValues.map(category => {
+      return category.path_from_root.map(values => values.name);
     });
     //agrego las categorias al nuevo formato de respuesta
-    response.categories = categoriesValues.map(value => value.name);
+    response.categories = categories;
 
     //busco los items
     let itemsValues = data.results.map(resultItem => {
@@ -49,7 +54,7 @@ module.exports = {
    * @param {*} data 
    * @returns response
    */
-  itemResponseParser: (data, description) => {
+  itemResponseParser: (data, description, categories) => {
     //armo el nuevo formato de respuesta
     let response = {
       author: {
@@ -57,6 +62,9 @@ module.exports = {
         lastname: "MLA",
       }
     };
+
+    //busco las categorias del item y las guardo para agregarlas en la respuesta
+    const categoriesNames = categories.path_from_root.map(category => category.name);
 
     //agrego el item y la descripcion al nuevo formato de respuesta
     response.item = {
@@ -72,7 +80,8 @@ module.exports = {
       free_shipping: data.shipping.free_shipping,
       location: data.seller_address.state.name,
       sold_quantity: data.sold_quantity,
-      description: description.plain_text
+      description: description.plain_text,
+      categories: categoriesNames,
     }
     
     return response;
