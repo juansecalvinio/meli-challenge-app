@@ -1,3 +1,6 @@
+/**
+ * Componente principal de la aplicación
+ */
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
@@ -8,6 +11,7 @@ import Layout from './common/components/Layout';
 import store from './store';
 import { theme } from './common/theme';
 
+// Crea el globalStyle para poder resetear estilos globales.
 const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 62.5%;
@@ -29,6 +33,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+/**
+ * Componente App
+ * - Utiliza el Provider de todo el estado de la aplicación con Redux
+ * - Utiliza el Router para controlar todas las rutas de la aplicación
+ * - El componente Layout es un contenedor para que cada ruta se renderice por debajo del Header.
+ * - El Routes valida cada ruta y la asigna a su componente determinado.
+ * @returns JSX Component
+ */
 const App = () => {
   return (
     <Provider store={store}>

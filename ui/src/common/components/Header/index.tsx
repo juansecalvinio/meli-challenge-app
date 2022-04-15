@@ -1,4 +1,10 @@
-import React, { useEffect, useState, FC } from 'react'
+/**
+ * Componente Header
+ * -----------------
+ * - Header de la aplicación.
+ * - Se encarga de la búsqueda de items a través del campo de texto.
+ */
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo-ml-2x.png';
 import iconSearch from '../../../assets/icon-search-2x.png';

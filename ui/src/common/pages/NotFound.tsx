@@ -1,5 +1,9 @@
-import React from 'react'
-import { animated, useSpring } from 'react-spring';
+/**
+ * Componente NotFound
+ * -------------------
+ * Se renderiza cada vez que exista algún error o no haya información para mostrar
+ */
+import { useSpring } from 'react-spring';
 import { VscError } from 'react-icons/vsc';
 import { NotFoundContainer } from './styled';
 

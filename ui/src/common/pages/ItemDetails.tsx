@@ -1,4 +1,10 @@
-import React, { useEffect } from 'react'
+/**
+ * Componente ItemDetails
+ * ----------------------
+ * Muestra todos los detalles del producto.
+ * Imagen, precio, título, descripción...
+ */
+import { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { useParams, useLocation } from 'react-router';
 import ContentLoader from 'react-content-loader'
@@ -31,12 +37,14 @@ const ItemDetails = (props: any) => {
   const location = useLocation();
   const { id } = useParams();
 
+  // Usa spring para generar una leve animación al cargar los elementos.
   const spring = useSpring({
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: { duration: 1000 }
   });
 
+  // Cada vez que se refresca la url, busca los datos del item.
   useEffect(() => {
     fetchItemById(id);
   }, [location.key]);
@@ -87,6 +95,7 @@ const ItemDetails = (props: any) => {
   )
 }
 
+// Mapea el state global de los reducer, a las propiedades del componente.
 const mapStateToProps = (state: any) => {
   return {
     categories: state.items.categories,
@@ -95,6 +104,7 @@ const mapStateToProps = (state: any) => {
   }
 }
 
+// Mapea el dispatcher global de las actions, a las propiedades del componente.
 const mapDispatchToProps = (dispatch: any) => {
   return {
     fetchItemById: (id: any) => dispatch(fetchItemById(id))

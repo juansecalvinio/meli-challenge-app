@@ -1,3 +1,6 @@
+/**
+ * Endpoints para /api/items
+ */
 const express = require('express');
 const itemsController = require('../controllers/items');
 

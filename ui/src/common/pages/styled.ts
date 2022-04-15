@@ -1,9 +1,14 @@
+/**
+ * Contiene todos los styled components para las pages:
+ * Home, Item, ItemDetails, NotFound.
+ */
+
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { theme } from '../theme';
 
 /**
- * Items list components
+ * Items components
  */
 
 export const ItemsContainer = styled(animated.section)`
