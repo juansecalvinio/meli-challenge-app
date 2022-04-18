@@ -9,7 +9,7 @@
     "install:ui": "cd ui && npm install",
     "start:bff": "cd bff && npm run dev",
     "start:ui": "cd ui && npm run start",
-    "install": "concurrently --kill-others-on-fail \"npm run install:bff\" \"npm run install:ui\"",
+    "install:app": "concurrently --kill-others-on-fail \"npm run install:bff\" \"npm run install:ui\"",
     "start": "concurrently --kill-others-on-fail \"npm run start:bff\" \"npm run start:ui\""
   },
   "devDependencies": {
